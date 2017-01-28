@@ -1,7 +1,7 @@
 /*
  * Copyright (c) 2004 Noah Levitt
  * Copyright (c) 2007, 2008 Christian Persch
- * Copyright (c) 2016 DaeHyun Sung
+ * Copyright (c) 2016, 2017 DaeHyun Sung
  *
  * This program is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the
@@ -546,6 +546,40 @@ conditionally_insert_canonical_decomposition (GucharmapCharmap *charmap,
 
   gtk_text_buffer_insert (buffer, iter, "\n", -1);
 
+  // check Korean alphabet(Hangul Syllables)
+  if (0xAC00 <= uc && uc <= 0xD7AF) {
+    gchar ubuf[7];
+
+    /* Can't copy values that are not valid unicode characters */
+    if (!gucharmap_unichar_validate (decomposition[0])) {
+      g_free (decomposition); 
+      return;
+    }
+    ubuf[g_unichar_to_utf8 (decomposition[0], ubuf)] = '\0';
+    gtk_text_buffer_insert(buffer, iter, _("Hangul Choseong:"), -1);
+    gtk_text_buffer_insert(buffer, iter,  ubuf, -1);
+    gtk_text_buffer_insert (buffer, iter, "\n", -1);
+    if (result_len > 1) {
+      if (!gucharmap_unichar_validate (decomposition[1])) {
+        g_free (decomposition);
+        return;
+      }
+      ubuf[g_unichar_to_utf8 (decomposition[1], ubuf)] = '\0';
+      gtk_text_buffer_insert(buffer, iter, _("Hangul Jungseong:"), -1);
+      gtk_text_buffer_insert(buffer, iter,  ubuf, -1);
+      gtk_text_buffer_insert (buffer, iter, "\n", -1);
+    }
+    if (result_len > 2) {
+      if (!gucharmap_unichar_validate (decomposition[2])) {
+        g_free (decomposition);
+        return;
+      }
+      ubuf[g_unichar_to_utf8 (decomposition[2], ubuf)] = '\0';
+      gtk_text_buffer_insert(buffer, iter, _("Hangul Jongseong:"), -1);
+      gtk_text_buffer_insert(buffer, iter,  ubuf, -1);
+      gtk_text_buffer_insert(buffer, iter, "\n", -1);
+    }
+  }
   g_free (decomposition);
 }
 
