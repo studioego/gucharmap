@@ -525,12 +525,13 @@ conditionally_insert_canonical_decomposition (GucharmapCharmap *charmap,
 
   gtk_text_buffer_insert (buffer, iter, _("Canonical decomposition:"), -1);
   gtk_text_buffer_insert (buffer, iter, " ", -1);
+
   /* check Korean alphabet(Hangul Syllables) */
   if (0xAC00 <= uc && uc <= 0xD7AF) {
     ubuf[g_unichar_to_utf8 (decomposition[0], ubuf)] = '\0';
     gtk_text_buffer_insert(buffer, iter,  ubuf, -1);
     gtk_text_buffer_insert (buffer, iter, " ", -1);
-  } 
+  }
   insert_codepoint (charmap, buffer, iter, decomposition[0]);
   for (i = 1;  i < result_len;  i++)
     {
