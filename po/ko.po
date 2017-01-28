@@ -76,6 +76,18 @@ msgstr "유니코드 범위"
 msgid "Canonical decomposition:"
 msgstr "문자 나누기:"
 
+#: ../gucharmap/gucharmap-charmap.c:547
+msgid "Hangul Choseong:"
+msgstr "한글 초성:"
+
+#: ../gucharmap/gucharmap-charmap.c:556
+msgid "Hangul Jungseong:"
+msgstr "한글 중성:"
+
+#: ../gucharmap/gucharmap-charmap.c:566
+msgid "Hangul Jongseong:"
+msgstr "한글 종성:"
+
 #: ../gucharmap/gucharmap-charmap.c:567 ../gucharmap/gucharmap-chartable.c:581
 msgid "[not a printable character]"
 msgstr "[표시할 수 없는 문자]"

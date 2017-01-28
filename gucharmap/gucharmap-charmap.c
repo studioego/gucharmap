@@ -513,6 +513,7 @@ conditionally_insert_canonical_decomposition (GucharmapCharmap *charmap,
   gunichar *decomposition;
   gsize result_len;
   guint i;
+  gchar ubuf[7];
 
   decomposition = g_unicode_canonical_decomposition (uc, &result_len);
 
@@ -524,11 +525,22 @@ conditionally_insert_canonical_decomposition (GucharmapCharmap *charmap,
 
   gtk_text_buffer_insert (buffer, iter, _("Canonical decomposition:"), -1);
   gtk_text_buffer_insert (buffer, iter, " ", -1);
-
+  /* check Korean alphabet(Hangul Syllables) */
+  if (0xAC00 <= uc && uc <= 0xD7AF) {
+    ubuf[g_unichar_to_utf8 (decomposition[0], ubuf)] = '\0';
+    gtk_text_buffer_insert(buffer, iter,  ubuf, -1);
+    gtk_text_buffer_insert (buffer, iter, " ", -1);
+  } 
   insert_codepoint (charmap, buffer, iter, decomposition[0]);
   for (i = 1;  i < result_len;  i++)
     {
       gtk_text_buffer_insert (buffer, iter, " + ", -1);
+      /* check Korean alphabet(Hangul Syllables) */
+      if (0xAC00 <= uc && uc <= 0xD7AF) {
+        ubuf[g_unichar_to_utf8 (decomposition[i], ubuf)] = '\0';
+        gtk_text_buffer_insert(buffer, iter,  ubuf, -1);
+        gtk_text_buffer_insert (buffer, iter, " ", -1);
+      }
       insert_codepoint (charmap, buffer, iter, decomposition[i]);
     }
 
@@ -703,7 +715,6 @@ set_details (GucharmapCharmap *charmap,
       || gucharmap_get_unicode_kJapaneseOn (uc)
       || gucharmap_get_unicode_kJapaneseKun (uc)
       || gucharmap_get_unicode_kTang (uc)
-      || gucharmap_get_unicode_kKorean (uc)
       || gucharmap_get_unicode_kHangul(uc)
       || gucharmap_get_unicode_kVietnamese(uc))
     {
@@ -739,15 +750,10 @@ set_details (GucharmapCharmap *charmap,
         insert_vanilla_detail (charmap, buffer, &iter,
                                _("Tang Pronunciation:"), csp);
     
-      csp = gucharmap_get_unicode_kKorean (uc);
+      csp = gucharmap_get_unicode_kHangul (uc);
       if (csp)
         insert_vanilla_detail (charmap, buffer, &iter,
                                _("Korean Pronunciation:"), csp);
-      
-      csp = gucharmap_get_unicode_kHangul (uc);
-      if (csp)
-        insert_vanilla_detail (charmap, buffer, &iter, 
-                               _("Korean Alphabet(Hangul):"), csp);
       
       csp = gucharmap_get_unicode_kVietnamese (uc);
       if (csp)

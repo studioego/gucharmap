@@ -458,7 +458,7 @@ help_about (GSimpleAction *action,
 			 "copyright", "Copyright © 2004 Noah Levitt\n"
 				      "Copyright © 1991–2016 Unicode, Inc.\n"
 				      "Copyright © 2007–2016 Christian Persch\n"
-                                      "Copyright © 2016 DaeHyun Sung",
+                                      "Copyright © 2016-2017 DaeHyun Sung",
 			 "documenters", documenters,
 			 "license", license_trans,
 			 "wrap-license", TRUE,
