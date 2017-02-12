@@ -2,6 +2,7 @@
 # This file is distributed under the same license as the gucharmap package.
 # Young-Ho, Cha <ganadist at mizi.com>, 2003-2006.
 # Changwoo Ryu <cwryu@debian.org>, 2007-2015.
+# DaeHyun Sung <sungdh86@gmail.com>, 2016.
 #
 # 참고:
 # - 이 프로그램을 'Character Map'이라고 하는데 '문자 표'라고 번역.
@@ -14,7 +15,6 @@
 #   - Extended: 확장영역
 # - "Extended-A", "Extended-B" 이런 식의 유니코드 코드 영역은 "확장영역 A",
 #   "확장영역 B"와 같이 한 칸 띄고 A, B를 기입.
-# DaeHyun Sung <sungdh86+git@gmail.com>, 2016, 2017.
 #
 msgid ""
 msgstr ""
@@ -22,15 +22,15 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=gucharmap&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2017-01-28 21:41+0000\n"
-"PO-Revision-Date: 2017-02-04 17:50+0900\n"
-"Last-Translator: DaeHyun Sung <sungdh86+git@gmail.com>\n"
-"Language-Team: 한국어 <>\n"
+"PO-Revision-Date: 2017-02-12 18:20+0900\n"
+"Last-Translator: DaeHyun Sung <sungdh86@gmail.com>\n"
+"Language-Team: GNOME Korea <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: ../data/gucharmap.appdata.xml.in.h:1 ../gucharmap.desktop.in.in.h:1
 #: ../gucharmap/gucharmap-window.c:768 ../gucharmap/main.c:267
@@ -1640,7 +1640,7 @@ msgstr "모디 문자"
 
 #: ../gucharmap/unicode-i18n.h:223
 msgid "Mongolian Supplement"
-msgstr "몽골어 보충 "
+msgstr "몽골 문자 추가영역"
 
 # 인도
 #: ../gucharmap/unicode-i18n.h:224 ../gucharmap/unicode-i18n.h:404
@@ -1714,7 +1714,7 @@ msgstr "먀오 문자"
 # 서하문자(西夏文字, Tangut Block)
 #: ../gucharmap/unicode-i18n.h:240
 msgid "Ideographic Symbols and Punctuation"
-msgstr "표의문자용 기호 및 구두점류"
+msgstr "표의문자용 기호 및 구두 기호"
 
 # 서하문자(西夏文字, Tangut Block)
 #: ../gucharmap/unicode-i18n.h:241 ../gucharmap/unicode-i18n.h:406
