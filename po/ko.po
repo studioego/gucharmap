@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the gucharmap package.
 # Young-Ho, Cha <ganadist at mizi.com>, 2003-2006.
 # Changwoo Ryu <cwryu@debian.org>, 2007-2015.
-# DaeHyun Sung <sungdh86@gmail.com>, 2016.
+# DaeHyun Sung <sungdh86@gmail.com>, 2016-2017.
 #
 # 참고:
 # - 이 프로그램을 'Character Map'이라고 하는데 '문자 표'라고 번역.
