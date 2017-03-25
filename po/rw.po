@@ -136,14 +136,6 @@ msgstr ""
 msgid "Korean Pronunciation:"
 msgstr ""
 
-#: ../gucharmap/gucharmap-charmap.c:749
-msgid "Korean Alphabet(Hangul):"
-msgstr ""
-
-#: ../gucharmap/gucharmap-charmap.c:754
-msgid "Vietnamese Pronunciation:"
-msgstr ""
-
 #: gucharmap/gucharmap-charmap.c:731
 msgid "Characte_r Table"
 msgstr ""
